@@ -17,6 +17,53 @@ express()
   // Nothing to modify above this line
   // ---------------------------------
   // add new endpoints here 👇
+  .get('/cat-message', (req, res) => {
+    const message = {author: 'cat', text: 'Meow'};
+    const rand = Math.floor(Math.random()*3000);
+    setTimeout(() => {
+      res.status(200).json({status: 200, message});
+    }, rand);
+  })
+
+  .get('/monkey-message', (req, res) => {
+    const messages = [
+      'Don’t monkey around with me.',
+      'If you pay peanuts, you get monkeys.',
+      'I fling 💩 at you!',
+      '🙊',
+      '🙈',
+      '🙉',
+    ];
+    const randMsg = Math.round(Math.random()*5);
+    const message = {author: 'Monkey', text: messages[randMsg] };
+
+    const rand = Math.floor(Math.random()*3000);
+  setTimeout(() => {
+    res.status(200).json({status: 200, message});
+  }, rand);
+  })
+
+  .get('/parrot-message', (req, res) => {
+
+
+    const message = {author: 'Parrot', text: req.query.text};
+
+    const rand = Math.floor(Math.random()*3000);
+    setTimeout(() => {
+      res.status(200).json({status: 200, message});
+    }, rand);
+
+    console.log(req.query);
+  })
+
+  .get('/bot-message', (req, res) => {
+    const message = {author: 'Bot', text: req.query.text};
+
+    const rand = Math.floor(Math.random()*3000);
+    setTimeout(() => {
+      res.status(200).json({status: 200, message});
+    }, rand);
+  })
 
   // add new endpoints here ☝️
   // ---------------------------------
